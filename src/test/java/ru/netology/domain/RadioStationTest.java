@@ -2,13 +2,13 @@ package ru.netology.domain;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RadioStationTest {
 
     @Test
     public void IncreaseVolume() {
-        RadioStation station = new RadioStation();
+        RadioStation station = new RadioStation(10,10, 0, 100, 0);
         station.setCurrentVolume(9);
         station.shouldIncreaseVolume();
         assertEquals(10, station.getCurrentVolume());
@@ -109,6 +109,7 @@ public class RadioStationTest {
         station.setCurrentVolume(-1);
         assertEquals(0, station.getCurrentVolume());
     }
+
     @Test
     public void shouldIncreaseStation1() {
         RadioStation station = new RadioStation();
@@ -117,10 +118,11 @@ public class RadioStationTest {
         assertEquals(0, station.getCurrentStation());
 
     }
+
     @Test
     public void IncreaseVolumeLimit() {
         RadioStation station = new RadioStation();
-        station.setCurrentVolume(10);
+        station.setCurrentVolume(9);
         station.shouldIncreaseVolume();
         assertEquals(10, station.getCurrentVolume());
     }
