@@ -9,12 +9,13 @@ public class RadioStation {
     private int minStation;
     private int minVolume = 100;
 
-    public RadioStation(int currentStation, int maxStation,int minStation, int maxVolume, int minVolume) {
+    public RadioStation(int currentStation, int maxStation, int minStation, int maxVolume, int minVolume) {
         this.currentStation = currentStation;
         this.maxStation = maxStation;
         this.minStation = minStation;
         this.maxVolume = maxVolume;
         this.minVolume = minVolume;
+
     }
 
     public RadioStation() {
@@ -76,7 +77,7 @@ public class RadioStation {
     }
 
     public void setCurrentVolume(int currentVolume) {
-        int maxVolume = 10;
+        int maxVolume = 100;
         int minVolume = 0;
         if (currentVolume > maxVolume || currentVolume < minVolume) {
             this.currentVolume = minVolume;

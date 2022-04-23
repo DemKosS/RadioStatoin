@@ -16,7 +16,7 @@ public class RadioStationTest {
 
     @Test
     public void DecreaseVolume() {
-        RadioStation station = new RadioStation();
+        RadioStation station = new RadioStation(10,10, 0, 100, 0);
         station.setCurrentVolume(1);
         station.shouldDecreaseVolume();
         assertEquals(0, station.getCurrentVolume());
@@ -54,37 +54,37 @@ public class RadioStationTest {
 
     @Test
     public void shouldNotSetStationUnderMin() {
-        RadioStation station = new RadioStation();
+        RadioStation station = new RadioStation(-0, 10,0,100,0);
         station.setCurrentStation(-12);
         assertEquals(0, station.getCurrentStation());
     }
 
     @Test
     public void shouldDecreaseStationWhenCurrent0() {
-        RadioStation station = new RadioStation();
+        RadioStation station = new RadioStation(10, 10,0,100,0);
         station.shouldDecreaseStation();
         assertEquals(9, station.getCurrentStation());
     }
 
     @Test
     public void shouldNotDecreaseVolume0() {
-        RadioStation station = new RadioStation();
+        RadioStation station = new RadioStation(10, 10,0,100,0);
         station.shouldDecreaseVolume();
         assertEquals(0, station.getCurrentVolume());
     }
 
     @Test
     public void shouldNotSetVolumeUnderMinimum() {
-        RadioStation station = new RadioStation();
-        station.setCurrentVolume(-11);
+        RadioStation station = new RadioStation(10, 10,0,100,1);
+        station.setCurrentVolume(-101);
         assertEquals(0, station.getCurrentVolume());
     }
 
     @Test
     public void shouldNotSetVolumeOverMaximum() {
-        RadioStation station = new RadioStation();
-        station.setCurrentVolume(11);
-        assertEquals(0, station.getCurrentVolume());
+        RadioStation station = new RadioStation(10, 10,0,100,0);
+        station.setCurrentVolume(100);
+        assertEquals(100, station.getCurrentVolume());
     }
 
     @Test
